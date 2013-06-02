@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomKeySet derivedfrom="Emacs" modifieddefault="false">
+   <Context id="Global">
+      <Action id="undo">
+         <Stroke code="VK_MINUS" ctrl="on" shift="on"/>
+         <Stroke code="VK_UNDERSCORE" ctrl="on"/>
+         <Sequence>
+            <Stroke code="VK_X" ctrl="on"/>
+            <Stroke code="VK_U"/>
+         </Sequence>
+         <Stroke code="VK_Z" ctrl="on"/>
+      </Action>
+      <Action id="new-mfile">
+         <Stroke code="VK_N" ctrl="on"/>
+      </Action>
+      <Action id="next-bookmark">
+         <Stroke code="VK_BACK_QUOTE" ctrl="on"/>
+      </Action>
+      <Action id="select-previous-tab">
+         <Stroke code="VK_LEFT" ctrl="on"/>
+         <Stroke code="VK_KP_LEFT" ctrl="on"/>
+      </Action>
+      <Action id="collapse-all-folds"/>
+      <Action id="debug-step-in">
+         <Stroke alt="on" code="VK_OPEN_BRACKET"/>
+         <Stroke code="VK_OPEN_BRACKET" meta="on"/>
+      </Action>
+      <Action id="exit-matlab"/>
+      <Action id="up-one-level">
+         <Stroke alt="on" code="VK_LEFT"/>
+         <Stroke code="VK_LEFT" meta="on"/>
+         <Stroke alt="on" code="VK_KP_LEFT"/>
+         <Stroke code="VK_KP_LEFT" meta="on"/>
+      </Action>
+      <Action id="select-next-tab">
+         <Stroke code="VK_RIGHT" ctrl="on"/>
+         <Stroke code="VK_KP_RIGHT" ctrl="on"/>
+      </Action>
+      <Action id="paste-from-clipboard">
+         <Stroke code="VK_Y" ctrl="on"/>
+         <Stroke alt="on" code="VK_E"/>
+         <Stroke code="VK_E" meta="on"/>
+      </Action>
+      <Action id="toggle-bookmark">
+         <Stroke code="VK_A" ctrl="on"/>
+      </Action>
+      <Action id="debug-continue">
+         <Stroke code="VK_F5"/>
+         <Sequence>
+            <Stroke alt="on" code="VK_X"/>
+            <Stroke alt="on" code="VK_R"/>
+         </Sequence>
+         <Sequence>
+            <Stroke code="VK_X" meta="on"/>
+            <Stroke code="VK_R" meta="on"/>
+         </Sequence>
+      </Action>
+      <Action id="save-all">
+         <Sequence>
+            <Stroke code="VK_X" ctrl="on"/>
+            <Stroke code="VK_S"/>
+         </Sequence>
+         <Stroke code="VK_F2"/>
+      </Action>
+      <Action id="page-up">
+         <Stroke code="VK_PAGE_UP"/>
+      </Action>
+      <Action id="comment">
+         <Stroke alt="on" code="VK_Z"/>
+         <Stroke code="VK_Z" meta="on"/>
+      </Action>
+      <Action id="collapse-fold">
+         <Stroke code="VK_MINUS" ctrl="on"/>
+      </Action>
+      <Action id="extract-archive">
+         <Stroke code="VK_ENTER" shift="on"/>
+      </Action>
+      <Action id="paste-excel-data">
+         <Stroke code="VK_Y" ctrl="on" shift="on"/>
+         <Stroke code="VK_E" ctrl="on" shift="on"/>
+      </Action>
+      <Action id="uncomment">
+         <Stroke alt="on" code="VK_A"/>
+         <Stroke code="VK_A" meta="on"/>
+      </Action>
+      <Action id="caret-begin-line">
+         <Stroke code="VK_HOME"/>
+      </Action>
+      <Action id="eval-cell">
+         <Stroke alt="on" code="VK_ENTER" shift="on"/>
+         <Stroke code="VK_ENTER" meta="on" shift="on"/>
+      </Action>
+      <Action id="select-next-tool">
+         <Stroke code="VK_TAB" ctrl="on"/>
+      </Action>
+      <Action id="change-current-folder">
+         <Stroke alt="on" code="VK_1" shift="on"/>
+         <Stroke code="VK_1" meta="on" shift="on"/>
+      </Action>
+      <Action id="close-item">
+         <Sequence>
+            <Stroke code="VK_X" ctrl="on"/>
+            <Stroke code="VK_K"/>
+         </Sequence>
+         <Stroke code="VK_Q" ctrl="on"/>
+      </Action>
+      <Action id="enable-disable-breakpoint">
+         <Sequence>
+            <Stroke code="VK_X" ctrl="on"/>
+            <Stroke code="VK_B" ctrl="on"/>
+         </Sequence>
+      </Action>
+      <Action id="evaluate-selection">
+         <Stroke alt="on" code="VK_F9"/>
+         <Stroke code="VK_F9" meta="on"/>
+      </Action>
+      <Action id="debug-step">
+         <Stroke alt="on" code="VK_CLOSE_BRACKET"/>
+         <Stroke code="VK_CLOSE_BRACKET" meta="on"/>
+      </Action>
+      <Action id="set-clear-breakpoint"/>
+      <Action id="rename">
+         <Stroke code="VK_R" ctrl="on"/>
+      </Action>
+      <Action id="expand-fold">
+         <Stroke code="VK_EQUALS" ctrl="on"/>
+      </Action>
+   </Context>
+   <Context id="MATLABDesktop">
+      <Action id="paste-to-workspace">
+         <Stroke alt="on" code="VK_E"/>
+         <Stroke code="VK_E" meta="on"/>
+      </Action>
+   </Context>
+   <Context id="WorkspaceBrowser">
+      <Action follows="None" id="paste-to-workspace">
+         <Stroke code="VK_Y" ctrl="on"/>
+         <Stroke alt="on" code="VK_E"/>
+         <Stroke code="VK_E" meta="on"/>
+      </Action>
+   </Context>
+   <Context id="MATLABEditor">
+      <Action id="open-selection">
+         <Stroke code="VK_ENTER" ctrl="on"/>
+      </Action>
+      <Action id="evaluate-selection">
+         <Stroke code="VK_BACK_SLASH" ctrl="on"/>
+      </Action>
+   </Context>
+   <Context id="Explorer">
+      <Action id="open-selection">
+         <Stroke code="VK_ENTER" ctrl="on"/>
+         <Stroke code="VK_ENTER"/>
+      </Action>
+   </Context>
+</CustomKeySet>

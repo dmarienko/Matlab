@@ -1,0 +1,2 @@
+# Java classpath entries for 3'rd party color themes
+$matlabroot/java/jarext/net-neilcsmith-praxis-laf.jar
