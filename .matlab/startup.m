@@ -16,3 +16,4 @@ set(0, 'defaultaxesfontsize', axesFontSize);
 set(0, 'defaulttextcolor',  textColor);
 set(0, 'defaulttextfontname', 'Arial');
 set(0, 'defaulttextfontsize', titleFontSize);
+clear axisColor textColor axesFontSize titleFontSize 
