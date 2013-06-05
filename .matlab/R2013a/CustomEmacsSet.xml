@@ -10,6 +10,9 @@
          </Sequence>
          <Stroke code="VK_Z" ctrl="on"/>
       </Action>
+      <Action id="inc-search-backward">
+         <Stroke code="VK_R" ctrl="on" shift="on"/>
+      </Action>
       <Action id="new-mfile">
          <Stroke code="VK_N" ctrl="on"/>
       </Action>
@@ -19,6 +22,9 @@
       <Action id="select-previous-tab">
          <Stroke code="VK_LEFT" ctrl="on"/>
          <Stroke code="VK_KP_LEFT" ctrl="on"/>
+      </Action>
+      <Action id="eval-cell-and-advance">
+         <Stroke code="VK_ENTER" ctrl="on" shift="on"/>
       </Action>
       <Action id="collapse-all-folds"/>
       <Action id="debug-step-in">
@@ -87,8 +93,7 @@
          <Stroke code="VK_HOME"/>
       </Action>
       <Action id="eval-cell">
-         <Stroke alt="on" code="VK_ENTER" shift="on"/>
-         <Stroke code="VK_ENTER" meta="on" shift="on"/>
+         <Stroke code="VK_ENTER" ctrl="on"/>
       </Action>
       <Action id="select-next-tool">
          <Stroke code="VK_TAB" ctrl="on"/>
@@ -141,7 +146,8 @@
    </Context>
    <Context id="MATLABEditor">
       <Action id="open-selection">
-         <Stroke code="VK_ENTER" ctrl="on"/>
+         <Stroke alt="on" code="VK_PERIOD"/>
+         <Stroke code="VK_PERIOD" meta="on"/>
       </Action>
       <Action id="evaluate-selection">
          <Stroke code="VK_BACK_SLASH" ctrl="on"/>
@@ -149,7 +155,8 @@
    </Context>
    <Context id="Explorer">
       <Action id="open-selection">
-         <Stroke code="VK_ENTER" ctrl="on"/>
+         <Stroke alt="on" code="VK_PERIOD"/>
+         <Stroke code="VK_PERIOD" meta="on"/>
          <Stroke code="VK_ENTER"/>
       </Action>
    </Context>

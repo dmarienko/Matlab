@@ -254,6 +254,7 @@ public class PlafUtils {
 				Options.setUseNarrowButtons(false);
                 UIManager.put("Nb.PraxisLFCustoms", new PraxisLFCustoms());
                 UIManager.setLookAndFeel("net.neilcsmith.praxis.laf.PraxisLookAndFeel");
+                System.setProperty("awt.useSystemAAFontSettings", "lcd");
                             updateTreeIcons();
 //                        } catch (Exception e) {
 //                        }
