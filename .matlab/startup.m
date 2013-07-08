@@ -32,3 +32,5 @@ if ~isempty(PWD),
     clear PWD;
 end
 
+% set off the ribbon alt hotkey to hell
+com.mathworks.desktop.mnemonics.MnemonicsManagers.get.disable
