@@ -13,6 +13,7 @@ function axdrag(action)
 %   n: axis normal
 %   e: axis equal
 %   g: toggle grid state
+%   ?: toggle datatip mode
 %   spacebar: toggle axis tick display state
 %   h: help
 % 
@@ -51,6 +52,7 @@ end
 switch action
     
 case 'initialize'
+    datacursormode off;
     set(gca,'ButtonDownFcn','axdrag start')
     set(gcf,'KeyPressFcn','axdrag keypress')
     set(gcf,'DoubleBuffer','on')
@@ -83,7 +85,7 @@ case 'stop'
 case 'keypress'
     currChar = get(gcbf,'CurrentCharacter');
     modifiers = get(gcf,'currentModifier');
-    
+
     if ismember('alt', modifiers), factor = panPageFactor; else factor = panFactor; end
 
     if isempty(currChar) 
@@ -101,6 +103,15 @@ case 'keypress'
         
     elseif currChar=='g',
         grid
+        
+    elseif currChar=='?',
+        datacursormode toggle
+        % here we need to disable adding protections listeners 
+        % see http://groups.google.ca/group/comp.soft-sys.matlab/msg/db42cf51392b442a
+        hManager = uigetmodemanager(gcbf);
+        set(hManager.WindowListenerHandles,'Enable','off');
+        % and here reattach listener again
+        set(gcf,'KeyPressFcn','axdrag keypress')
         
     elseif currChar==28,
         xLim=get(gca,'XLim');
@@ -171,6 +182,7 @@ case 'keypress'
                 '  n: axis normal'
                 '  e: axis equal'
                 '  g: toggle grid state'
+                '  ?: toggle datacursor mode'
                 '  spacebar: toggle axis tick display state'
                 '  h: help' 
                 ' '
