@@ -109,12 +109,6 @@
          </Sequence>
          <Stroke code="VK_Q" ctrl="on"/>
       </Action>
-      <Action id="enable-disable-breakpoint">
-         <Sequence>
-            <Stroke code="VK_X" ctrl="on"/>
-            <Stroke code="VK_B" ctrl="on"/>
-         </Sequence>
-      </Action>
       <Action id="evaluate-selection">
          <Stroke alt="on" code="VK_F9"/>
          <Stroke code="VK_F9" meta="on"/>
@@ -123,7 +117,12 @@
          <Stroke alt="on" code="VK_CLOSE_BRACKET"/>
          <Stroke code="VK_CLOSE_BRACKET" meta="on"/>
       </Action>
-      <Action id="set-clear-breakpoint"/>
+      <Action id="set-clear-breakpoint">
+         <Sequence>
+            <Stroke code="VK_X" ctrl="on"/>
+            <Stroke code="VK_B" ctrl="on"/>
+         </Sequence>
+      </Action>
       <Action id="rename">
          <Stroke code="VK_R" ctrl="on"/>
       </Action>
