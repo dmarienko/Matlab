@@ -34,3 +34,26 @@ end
 
 % set off the ribbon alt hotkey to hell
 com.mathworks.desktop.mnemonics.MnemonicsManagers.get.disable
+
+myPath = '/home/dima/.matlab/';
+if 1
+	Matlab_extendEditorFunctionality(true)
+	addpath(myPath,'-begin');
+	fid = fopen(fullfile(myPath ,'edit.m'),'w');
+	fprintf(fid,['function edit(str)',char(13), 'if nargin < 1 || isempty(str)',char(13),...
+		'\tstr='''';',char(13),'end',char(13), 'rmpath(','''',myPath,'''',');',char(13),...
+		'edit(str);',char(13), 'addpath(','''',myPath,'''',',''-begin'');',char(13),'Matlab_extendEditorFunctionality(true); FE;']);
+	fclose(fid);
+	clear fid
+else
+	w(1) = warning('off','MATLAB:rmpath:DirNotFound');
+	w(2) = warning('off','MATLAB:DELETE:FileNotFound');
+	Matlab_extendEditorFunctionality(false)
+	rmpath(myPath);
+	delete(fullfile(myPath,'edit.m'))
+	warning(w)
+end
+clear('userWithEditorExtension','w', 'myPath');
+
+% attach my custom events
+FE;
