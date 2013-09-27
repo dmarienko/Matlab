@@ -20,7 +20,7 @@ clear axisColor textColor axesFontSize titleFontSize
 % My misc utilities
 addpath('~/.matlab/utils/')
 % Library from spatial-econometrics.com/
-addpath(genpath('~/.matlab/libs/jplv7/'))
+addpath(genpath('~/.matlab/libs/jplv7/'), '-end')
 
 try 
     EditorMacro('Escape', @GiveFocusEditor, 'run');
