@@ -1,3 +1,6 @@
 disp('Saving workspace ...')
 PWD = pwd(); 
-save ~/workspace.mat '*' 'PWD';
+try
+    save ~/workspace.mat '*' 'PWD';
+catch err
+end

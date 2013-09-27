@@ -17,7 +17,11 @@ set(0, 'defaulttextfontname', 'Arial');
 set(0, 'defaulttextfontsize', titleFontSize);
 clear axisColor textColor axesFontSize titleFontSize 
 
+% My misc utilities
 addpath('~/.matlab/utils/')
+% Library from spatial-econometrics.com/
+addpath(genpath('~/.matlab/libs/jplv7/'))
+
 try 
     EditorMacro('Escape', @GiveFocusEditor, 'run');
     EditorMacro('Alt v', 'select-word', 'run');
