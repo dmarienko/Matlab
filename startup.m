@@ -28,13 +28,6 @@ try
 catch
 end
 
-disp('Loading workspace ...')
-load ~/workspace.mat; 
-if ~isempty(PWD),
-    disp(['Jumping to ' PWD]);
-    cd(PWD);
-    clear PWD;
-end
 
 % set off the ribbon alt hotkey to hell
 com.mathworks.desktop.mnemonics.MnemonicsManagers.get.disable
@@ -61,3 +54,11 @@ clear('userWithEditorExtension','w', 'myPath');
 
 % attach my custom events
 FE;
+
+disp('Loading workspace ...')
+load ~/workspace.mat; 
+if ~isempty(PWD),
+    disp(['Jumping to ' PWD]);
+    cd(PWD);
+    clear PWD;
+end
