@@ -9,7 +9,7 @@ function [eqty, sharpe, dd, ret] = iqtest(P, signals, intiDeposit)
     for i = 1 : nInstrs, poses(i) = Position; end
   
     % Main cycle
-    ret = [signals(1, 1) 0];
+    ret = [signals(1, 1) 0 zeros(1,nInstrs)]; % execution prices are at the end
     for i = 1 : size(signals, 1)
         ti = signals(i, 1);
                
@@ -19,21 +19,15 @@ function [eqty, sharpe, dd, ret] = iqtest(P, signals, intiDeposit)
         if isempty(prices), error(['Can''t find prices for signal at ' datestr(ti)]); end
         
         pnl = 0;
-        % dbg = [];
         for j = 1 : nInstrs
             signal = signals(i, j+1);
             if ~isnan(signal) % skip NaN signals
                 pnl = pnl + poses(j).changePosition(prices(j), signal);
-                % dbg = [dbg sprintf('%d(%.02f) ', signals(i, j+1), prices(j))];
             end
         end
         
         if pnl ~= 0
-            ret =[ret; [ti pnl];];
-            % -- Debug stuff --
-            %   fprintf('Exit [%s] %s ~> %0.2f\n', datestr(ti, 'dd.mm.yyyy'), dbg, pnl);
-            % else
-            %   fprintf('Entr [%s] %s ~> %0.2f\t', datestr(ti, 'dd.mm.yyyy'), dbg);
+            ret =[ret; [ti pnl prices];]; % attach prices
         end
 
     end
@@ -45,7 +39,7 @@ function [eqty, sharpe, dd, ret] = iqtest(P, signals, intiDeposit)
         pnl = pnl + poses(j).changePosition(prices(j), 0);
     end
     if pnl ~= 0,
-        ret =[ret; [P(end, 1) pnl];];
+        ret =[ret; [P(end, 1) pnl prices];];
     end
     
     % statistic
