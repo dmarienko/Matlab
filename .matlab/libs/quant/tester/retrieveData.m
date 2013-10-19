@@ -1,12 +1,15 @@
-function S = retrieveData(symbs, from, to)
+function S = retrieveData(symbs, from, to, datasource, frame)
     if ~iscell(symbs), symbs = {symbs}; end
+    
+    if nargin < 4, datasource = 'yahoo.a'; end
+    if nargin < 5, frame = Helper.D; end
     
     % Collect series data
     S = struct('Name',[], 'Tm', [], 'Op', [], 'Hi', [], 'Lo', [], 'Cl', [], 'Vo', []);
     
     k = 1;
     for i = {symbs{:}}
-        d = getData(char(i), from, to);
+        d = getData(char(i), datasource, frame, from, to);
         if ~isempty(d)
             S(k).Name = char(i);
             S(k).Tm = d(:,1);
@@ -20,9 +23,9 @@ function S = retrieveData(symbs, from, to)
     end
 end
 
-function s = getData(symb, from, to)
+function s = getData(symb, datasource, frame, from, to)
     try 
-        s = Helper.fetch('yahoo.a', symb, Helper.D, from, to);
+        s = Helper.fetch(datasource, symb, frame, from, to);
         s = s.toMat(1);
     catch
         s = [];
