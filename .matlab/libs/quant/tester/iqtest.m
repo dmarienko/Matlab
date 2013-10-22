@@ -9,7 +9,7 @@ function [eqty, sharpe, dd, ret] = iqtest(P, signals, intiDeposit)
     for i = 1 : nInstrs, poses(i) = Position; end
   
     % Main cycle
-    ret = [signals(1, 1) 0 zeros(1,nInstrs)]; % execution prices are at the end
+    ret = [signals(1, 1) 0 zeros(1, size(P, 2)-1)]; % execution prices are at the end
     for i = 1 : size(signals, 1)
         ti = signals(i, 1);
                
