@@ -1,5 +1,25 @@
 function [eqty, sharpe, dd, ret] = iqtest(P, signals, intiDeposit)
-	% iqtest(P, signals) process trading signals
+    %      __  __
+    %   __/  \/ /_  iQuantTrader platform
+    %  / / / /  _/  (c) 2009-2013, JWizards
+    %  \/\__ \__\   http://www.appliedalpha.com/
+    %       \/
+    %
+	% [eqty, sharpe, dd, ret] = iqtest(P, signals, initialDeposit) process trading signals
+    %
+    % Inputs:
+    %    P  - matrix of prices, first column is time, rest are prices for every stock.
+    %    signals - matrix of signals, first column is time, rest are positions for every stock. 
+    %         If position is NaN the signal is skipped.
+    %    initialDeposit - initial dollar deposit.
+    %
+    % Outputs:
+    %    eqty - equity curve
+    %    sharpe - Annualized Sharpe index
+    %    dd - maximal drawdown in percents
+    %    ret - returns at every time when profit is realized
+    %
+    
     if size(P, 2) < 2, error('Price matrix must contain at least 2 colums (Time and Price)'); end
     if size(signals, 2) < 2, error('Signal''s matrix must contain at least 2 colums (Time and signal)'); end
     if size(signals, 2) > size(P, 2), error('Wrong price matrix num colums'); end

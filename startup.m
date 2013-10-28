@@ -55,10 +55,14 @@ clear('userWithEditorExtension','w', 'myPath');
 % attach my custom events
 FE;
 
-disp('Loading workspace ...')
-load ~/workspace.mat; 
-if ~isempty(PWD),
-    disp(['Jumping to ' PWD]);
-    cd(PWD);
-    clear PWD;
+try 
+    disp('Loading workspace ...')
+    load ~/workspace.mat;
+    if ~isempty(PWD),
+        disp(['Jumping to ' PWD]);
+        cd(PWD);
+        clear PWD;
+    end
+catch exc
+    display('Can''t read saved workspace ...');
 end
