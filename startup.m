@@ -32,6 +32,34 @@ end
 % set off the ribbon alt hotkey to hell
 com.mathworks.desktop.mnemonics.MnemonicsManagers.get.disable
 
+% --- Doing some colorizzzing ---
+
+% Adjust command Command Window
+cw = com.mathworks.mde.desk.MLDesktop.getInstance.getClient('Command Window');
+xCmdWndView = cw.getComponent(0).getViewport.getComponent(0);
+xCmdWndView.setForeground(java.awt.Color(0.2,0.6,0.2))
+f0 = xCmdWndView.getFont; xCmdWndView.setFont(java.awt.Font(f0.getName,java.awt.Font.BOLD, f0.getSize));
+
+% Adjust workspace
+cw = com.mathworks.mde.desk.MLDesktop.getInstance.getClient('Workspace');
+xCmdWndView = cw.getComponent(0).getViewport.getComponent(0);
+f0 = xCmdWndView.getFont; xCmdWndView.setFont(java.awt.Font(f0.getName,java.awt.Font.BOLD, f0.getSize));
+xCmdWndView.setForeground(java.awt.Color(0.8,0.5,0.1));
+
+% Adjust command history
+cw = com.mathworks.mde.desk.MLDesktop.getInstance.getClient('Command History');
+xCmdWndView = cw.getComponent(0).getViewport.getComponent(0);
+f0 = xCmdWndView.getFont; xCmdWndView.setFont(java.awt.Font(f0.getName,java.awt.Font.BOLD, f0.getSize));
+
+% Adjust current folder
+cw = com.mathworks.mde.desk.MLDesktop.getInstance.getClient('Current Folder');
+xCmdWndView = cw.getComponent(1).getComponent(1).getComponent(0).getComponent(0);
+f0 = xCmdWndView.getFont; xCmdWndView.setFont(java.awt.Font(f0.getName,java.awt.Font.BOLD, f0.getSize));
+xCmdWndView.setForeground(java.awt.Color(0.1,0.5,0.8));
+
+clear f0 xCmdWndView cw
+
+
 myPath = '/home/dima/.matlab/';
 if 1
 	Matlab_extendEditorFunctionality(true)
