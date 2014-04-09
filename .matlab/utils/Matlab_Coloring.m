@@ -21,9 +21,15 @@ function Matlab_Coloring(obj, event, string_arg)
     
         % Adjust current folder
         cw = com.mathworks.mde.desk.MLDesktop.getInstance.getClient('Current Folder');
-        xCmdWndView = cw.getComponent(1).getComponent(1).getComponent(0).getComponent(0);
-        f0 = xCmdWndView.getFont; xCmdWndView.setFont(java.awt.Font(f0.getName,java.awt.Font.BOLD, f0.getSize));
-        xCmdWndView.setForeground(java.awt.Color(0.1,0.5,0.8));
+        %if isempty(cw) 
+        %    com.mathworks.mde.explorer.Explorer.invoke();
+        %    cw = com.mathworks.mde.explorer.Explorer.getInstance(); 
+        %end
+        if ~isempty(cw) 
+            xCmdWndView = cw.getComponent(1).getComponent(1).getComponent(0).getComponent(0);
+            f0 = xCmdWndView.getFont; xCmdWndView.setFont(java.awt.Font(f0.getName,java.awt.Font.BOLD, f0.getSize));
+            xCmdWndView.setForeground(java.awt.Color(0.1,0.5,0.8));
+        end
     catch e
         warning(getReport(e))
     end

@@ -1,5 +1,5 @@
 % My dark colortheme for plot
-axisColor = [0.25 0.25 0.25];
+axisColor = [0.45 0.45 0.45];
 textColor = [0 0.5 0];
 axesFontSize = 7;
 titleFontSize = 15;
@@ -15,6 +15,9 @@ set(0, 'defaultaxesfontsize', axesFontSize);
 set(0, 'defaulttextcolor',  textColor);
 set(0, 'defaulttextfontname', 'Arial');
 set(0, 'defaulttextfontsize', titleFontSize);
+set(0,'DefaultAxesColorOrder',[[142 196 250]/255; [12 170 12]/255; 0.9 0.9 0.9;  [248 12 12]/255; 0.7 0.7 0.7; 1 1 0; [250 146 250]/255;  0 1 1; ]);
+set(0,'defaultlinelinewidth',1.5)
+set(0,'DefaultLineLineSmoothing','on') % !!! 
 clear axisColor textColor axesFontSize titleFontSize 
 
 % My misc utilities
@@ -67,6 +70,6 @@ end
 % --- Doing some stuff after heavy gui is started ---
 t = timer;
 t.TimerFcn = @Matlab_Coloring;
-t.StartDelay = 1; % think it's enough
+t.StartDelay = 1; %think it's enough
 start(t);
 clear t
