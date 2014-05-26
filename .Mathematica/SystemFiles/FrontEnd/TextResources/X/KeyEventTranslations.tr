@@ -6,6 +6,86 @@
 *)
 
 EventTranslations[{
+
+(* Delete all Output, Message and Print cells in the selected notebook 
+   Basically my answer from http://mathematica.stackexchange.com/a/13992/29
+   
+   Windows: Control Shift x                    deletes all Output and Message and Print Cells   
+   Windows: Command (Windows-Key) Alt d        deletes all Output and Message and Print Cells
+   MacOSX:  Command Option d                   deletes all Output and Message and Print Cells  
+
+*)
+             Item[KeyEvent["Delete", Modifiers -> {Control, Shift}], 
+             KernelExecute[
+               Module[{nb = SelectedNotebook[]},
+                Scan[Function[c, If[NotebookFind[nb, c, All, CellStyle, AutoScroll -> False] =!= $Failed,
+                                    NotebookDelete[nb, AutoScroll -> False]]  
+                             ],
+                     {"Message", "Output", "Print"}
+                    ];
+                 SelectionMove[nb,After,Notebook];
+              ]
+            ], MenuEvaluator -> Automatic ],
+
+ 
+(* Merge cells fix for M9; instead of 
+   Control Shift M      
+   Windows:   Command Alt m
+   MacOSX:    Command Option m
+   can be used instead: *)
+             Item[KeyEvent["m", Modifiers -> {Command,Option}], 
+
+                     KernelExecute[
+      FrontEndExecute[FrontEndToken["CellMerge"]];
+      Module[{ce=Cells[CellStyle -> "Input"]},
+      Scan[Function[x,NotebookWrite[x,ReplaceRepeated[NotebookRead[x],
+      RuleDelayed[HoldPattern[RowBox[Pattern[a,Blank[]],Pattern[b,BlankSequence[]]]],RowBox[List[a,b]]]]]],ce];
+ ];
+            ] , MenuEvaluator -> Automatic ],
+
+
+(* Quit the kernel by Command Alt k or Control Shift q (on Windows)
+   from http://mathematica.stackexchange.com/questions/6224/best-way-to-add-keyevents-and-faster-quit?rq=1 *)
+             Item[KeyEvent["k", Modifiers -> {Command,Option}],
+                  KernelExecute[ToExpression["Quit[]"] 
+                               ], MenuEvaluator -> Automatic
+                 ],
+              Item[KeyEvent["q", Modifiers -> {Control,Shift}],
+                  KernelExecute[ToExpression["Quit[]"] 
+                               ], MenuEvaluator -> Automatic
+                 ],
+
+(* Select all cells upwards from where the mouse is and evaluate those cells
+   based on ButtonTools.nb from http://www.mertig.com/mathdepot 
+*)
+
+Item[KeyEvent["Up", Modifiers -> {Control, Shift}], 
+         KernelExecute[
+          Module[{ enb = EvaluationNotebook[],
+                   tag = StringJoin["tmp", ToString[Round[AbsoluteTime[]/$TimeUnit]]],editable 
+                   },
+                editable = ReplaceAll[Editable, Options[enb, Editable]];
+                SetOptions[enb, Editable -> False];
+                SelectionMove[enb, Previous, Cell, AutoScroll -> False];
+                MathLink`CallFrontEnd[FrontEnd`SelectionAddCellTags[enb, {tag}]];
+                SelectionMove[enb, Before, Notebook, AutoScroll -> False];
+                SelectionMove[enb, Next, Cell, AutoScroll -> False];
+                While[FreeQ[ReplaceAll[CellTags,Options[NotebookSelection[]]], tag],
+                      MathLink`CallFrontEnd[FrontEnd`SelectionAddCellTags[enb, {tag}]];
+                      SelectionMove[enb, Next, Cell, AutoScroll -> False]
+                ];
+                NotebookFind[enb, tag, All, CellTags, AutoScroll -> False];
+                MathLink`CallFrontEnd[FrontEnd`SelectionRemoveCellTags[enb, {tag}]];
+                
+                SetOptions[enb, Editable -> editable];
+                SelectionEvaluate[SelectedNotebook[]];
+            ]
+            ], MenuEvaluator -> Automatic ],
+
+Item[KeyEvent["End", Modifiers -> {Control, Shift}],  "EvaluateNotebook"],
+
+
+
 	Item[KeyEvent["[", Modifiers -> {Control}],
 	FrontEndExecute[{FrontEnd`NotebookWrite[FrontEnd`InputNotebook[],
 	"\[LeftDoubleBracket]", After]}]],
@@ -14,7 +94,13 @@ EventTranslations[{
 	FrontEndExecute[{FrontEnd`NotebookWrite[FrontEnd`InputNotebook[],
 	"\[RightDoubleBracket]", After]}]], 
 
-	Item[KeyEvent["Delete", Modifiers -> {Shift, Control}], "DeleteGeneratedCells"], 
+	(*Item[KeyEvent["Delete", Modifiers -> {Shift, Control}], "DeleteGeneratedCells"], *)
+
+	Item[KeyEvent["Delete", Modifiers -> {Shift}],
+	FrontEndExecute[{
+	FrontEnd`SelectionMove[FrontEnd`SelectedNotebook[], All, Cell], 
+	        FrontEnd`FrontEndToken["Clear"]
+    }]],	
 
 (* Evaluation *)
 	Item[KeyEvent["Enter"], "EvaluateCells"],
@@ -160,7 +246,7 @@ EventTranslations[{
 	Item[KeyEvent["Help"], "SelectionHelpDialog"], 
 	Item[KeyEvent["Insert", Modifiers -> {Shift}], Paste[After]],
 	Item[KeyEvent["Insert", Modifiers -> {Control}], "Copy"],
-	Item[KeyEvent["Delete", Modifiers -> {Shift}], "Cut"],
+	(*Item[KeyEvent["Delete", Modifiers -> {Shift}], "Cut"],*)
 	Item[KeyEvent["F1", Modifiers->{Shift}], SelectionHelpDialog[False]],
 	Item[KeyEvent["F2"], FrontEnd`CompleteSelection[True]]
 }]
