@@ -31,12 +31,13 @@ try
 catch
 end
 
+isDesktop = usejava('desktop');
 
 % set off the ribbon alt hotkey to hell
-com.mathworks.desktop.mnemonics.MnemonicsManagers.get.disable
+if isDesktop, com.mathworks.desktop.mnemonics.MnemonicsManagers.get.disable; end
 
 myPath = '/home/dima/.matlab/';
-if 1
+if isDesktop
 	Matlab_extendEditorFunctionality(true)
 	addpath(myPath,'-begin');
 	fid = fopen(fullfile(myPath ,'edit.m'),'w');
@@ -46,12 +47,18 @@ if 1
 	fclose(fid);
 	clear fid
 else
-	w(1) = warning('off','MATLAB:rmpath:DirNotFound');
-	w(2) = warning('off','MATLAB:DELETE:FileNotFound');
-	Matlab_extendEditorFunctionality(false)
-	rmpath(myPath);
-	delete(fullfile(myPath,'edit.m'))
-	warning(w)
+	% w(1) = warning('off','MATLAB:rmpath:DirNotFound');
+	% w(2) = warning('off','MATLAB:DELETE:FileNotFound');
+	% Matlab_extendEditorFunctionality(false)
+	% rmpath(myPath);
+	% delete(fullfile(myPath,'edit.m'))
+	% warning(w)
+	addpath(myPath,'-begin');
+	fid = fopen(fullfile(myPath ,'edit.m'), 'w');
+	fprintf(fid,['function edit(str)',char(13), 'if nargin < 1 || isempty(str)',char(13),...
+		'\tstr='''';',char(13),'end',char(13), 'system([''subl '' str]);',char(13)]);
+	fclose(fid);
+	clear fid
 end
 clear('userWithEditorExtension', 'w', 'myPath');
 
@@ -67,9 +74,12 @@ catch
     display('Can''t read saved workspace ...');
 end
 
-% --- Doing some stuff after heavy gui is started ---
-t = timer;
-t.TimerFcn = @Matlab_Coloring;
-t.StartDelay = 1; %think it's enough
-start(t);
-clear t
+% --- Doing some stuff if heavy gui is started ---
+if isDesktop
+	t = timer;
+	t.TimerFcn = @Matlab_Coloring;
+	t.StartDelay = 1; %think it's enough
+	start(t);
+	clear t
+end
+clear isDesktop;
