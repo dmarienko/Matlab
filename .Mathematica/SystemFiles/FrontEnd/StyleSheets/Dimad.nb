@@ -3,25 +3,23 @@
 (*** Wolfram Notebook File ***)
 (* http://www.wolfram.com/nb *)
 
-(* CreatedBy='Mathematica 9.0' *)
+(* CreatedBy='Mathematica 10.0' *)
 
 (*CacheID: 234*)
 (* Internal cache information:
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
-NotebookDataPosition[       157,          7]
-NotebookDataLength[     11221,        324]
-NotebookOptionsPosition[      9068,        267]
-NotebookOutlinePosition[      9426,        282]
-CellTagsIndexPosition[      9383,        279]
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     11732,        319]
+NotebookOptionsPosition[      9465,        267]
+NotebookOutlinePosition[      9946,        284]
+CellTagsIndexPosition[      9903,        281]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 Cell[StyleData[StyleDefinitions -> FrontEnd`FileName[{"Creative"}, 
   "PastelColor.nb", CharacterEncoding -> "UTF-8"]]],
-
-Cell[CellGroupData[{
 
 Cell["Notebook Options Settings", "Section"],
 
@@ -33,10 +31,7 @@ Cell[StyleData["Notebook"],
  CellFrameLabelMargins->6,
  ShowStringCharacters->True,
  StyleMenuListing->None,
- Background->RGBColor[0.25, 0.25, 0.25]]
-}, Closed]],
-
-Cell[CellGroupData[{
+ Background->RGBColor[0.25, 0.25, 0.25]],
 
 Cell["Introduction", "Section",
  CellChangeTimes->{{3.558298994863233*^9, 3.558298996678213*^9}}],
@@ -57,10 +52,7 @@ I use the Inconsolata-dz font for monospaced text (code) and the Optima font \
 for everything else. It might give errors or use default fonts if these are \
 missing.\
 \>", "Text",
- CellChangeTimes->{{3.5582991771880198`*^9, 3.558299224097354*^9}}]
-}, Open  ]],
-
-Cell[CellGroupData[{
+ CellChangeTimes->{{3.5582991771880198`*^9, 3.558299224097354*^9}}],
 
 Cell["Solarized color palette", "Section",
  CellChangeTimes->{{3.546641219709587*^9, 3.546641233132161*^9}}],
@@ -101,8 +93,7 @@ RGBColor[0.164706,0.631373,0.596078]\ngreen\t\tRGBColor[0.521569,0.6,0.]\n\n\n"
   3.546641676146586*^9, 3.546641761982574*^9}, {3.5466417989606047`*^9, 
   3.546642041057782*^9}, {3.546642792805011*^9, 3.546642797209147*^9}, {
   3.546649959233301*^9, 3.546650156180094*^9}, {3.546650733494541*^9, 
-  3.5466508011434727`*^9}}]
-}, Open  ]],
+  3.5466508011434727`*^9}}],
 
 Cell[CellGroupData[{
 
@@ -125,8 +116,6 @@ Cell[StyleData[All, "Printout"],
   0.2235294117647059, 0.2235294117647059, 0.2235294117647059]]
 }, Open  ]],
 
-Cell[CellGroupData[{
-
 Cell["Input/Output and StandardForm", "Section",
  CellChangeTimes->{{3.547231193505116*^9, 3.54723119802892*^9}, {
    3.5472314220833273`*^9, 3.5472314239853687`*^9}, 3.547231483081115*^9}],
@@ -142,7 +131,6 @@ Cell[StyleData["StandardForm"],
   FontColor -> RGBColor[0.8, 0., 0.], Background -> 
    RGBColor[0.41, 0.41, 0.41]},
  "FunctionLocalVariableStyle"->{FontColor -> RGBColor[0.709804, 0.537255, 0.]},
- "FunctionNotebookStyle"->{FontColor -> RGBColor[0., 0.51, 0.7]},
  "LocalScopeConflictStyle"->{
   FontColor -> RGBColor[0.423529, 0.443137, 0.768627]},
  "LocalVariableStyle"->{FontColor -> RGBColor[0.164706, 0.631373, 0.596078]},
@@ -161,7 +149,9 @@ Cell[StyleData["StandardForm"],
  FontColor->RGBColor[0.803921568627451, 0.803921568627451, 0.803921568627451],
  
  Background->RGBColor[
-  0.2235294117647059, 0.2235294117647059, 0.2235294117647059]],
+  0.2235294117647059, 0.2235294117647059, 0.2235294117647059],
+ AutoStyleOptions -> {
+  "FunctionNotebookStyle" -> {FontColor -> RGBColor[0., 0.51, 0.7]}}],
 
 Cell[StyleData["Input"],
  CellFrame->1,
@@ -223,10 +213,7 @@ Cell[StyleData["PrintUsage"],
  FontColor->RGBColor[
   0.7843137254901961, 0.7843137254901961, 0.7843137254901961],
  Background->RGBColor[
-  0.3215686274509804, 0.3215686274509804, 0.3215686274509804]]
-}, Open  ]],
-
-Cell[CellGroupData[{
+  0.3215686274509804, 0.3215686274509804, 0.3215686274509804]],
 
 Cell["Titles, sections and text", "Section",
  CellChangeTimes->{{3.5472314281356163`*^9, 3.547231435673066*^9}, 
@@ -234,41 +221,56 @@ Cell["Titles, sections and text", "Section",
 
 Cell[StyleData["Title"],
  FontFamily->"Optima",
- FontColor->RGBColor[0.14902, 0.545098, 0.823529]],
+ FontColor->RGBColor[0.14902, 0.545098, 0.823529],
+ Background->RGBColor[0.1961, 0.1961, 0.1961]],
 
 Cell[StyleData["Subtitle"],
- FontFamily->"Optima"],
+ FontFamily->"Optima",
+ Background->RGBColor[0.1961, 0.1961, 0.1961]],
 
 Cell[StyleData["Subsubtitle"],
  CellGroupingRules->{GroupTogetherGrouping, 10000.},
  CellChangeTimes->{3.5531667905651913`*^9},
- FontFamily->"Optima"],
+ FontFamily->"Optima",
+ Background->RGBColor[0.1961, 0.1961, 0.1961]],
 
 Cell[StyleData["Section"],
  CellGroupingRules->{GroupTogetherGrouping, 10000.},
  CellChangeTimes->{3.5531667905640497`*^9},
- FontFamily->"Optima"],
+ FontFamily->"Optima",
+ Background->RGBColor[0.1961, 0.1961, 0.1961]],
 
 Cell[StyleData["Subsection"],
  CellGroupingRules->{GroupTogetherGrouping, 10000.},
  CellChangeTimes->{3.5531667905648108`*^9},
- FontFamily->"Optima"],
+ FontFamily->"Optima",
+ Background->RGBColor[0.1961, 0.1961, 0.1961]],
+
+Cell[StyleData["DisplayFormula"],
+ FontColor->RGBColor[0.333333, 0.666667, 1.]],
+
+Cell[StyleData["DisplayFormulaNumbered"],
+ FontColor->RGBColor[0.333333, 0.666667, 1.]],
 
 Cell[StyleData["Subsubsection"],
- FontFamily->"Optima"],
+ FontFamily->"Optima",
+ Background->RGBColor[0.1961, 0.1961, 0.1961]],
 
 Cell[StyleData["Text"],
  TextJustification->1,
  FontFamily->"Optima",
- FontSize->12],
+ FontSize->14,
+ FontColor->RGBColor[
+  0.7647058823529411, 0.7647058823529411, 0.7647058823529411]],
 
 Cell["Null", "Input"]
-}, Open  ]]
 },
-WindowSize->{740, 756},
-WindowMargins->{{555, Automatic}, {102, Automatic}},
-FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
-StyleDefinitions->"PrivateStylesheetFormatting.nb"
+WindowSize->{808, 876},
+WindowMargins->{{548, Automatic}, {Automatic, 65}},
+FrontEndVersion->"10.0 for Linux x86 (64-bit) (June 27, 2014)",
+StyleDefinitions->FrontEnd`FileName[{$RootDirectory, "home", "dima", 
+   ".Mathematica", "SystemFiles", "FrontEnd", "StyleSheets"}, "Dimad.nb", 
+  CharacterEncoding -> "UTF-8"]
 ]
 (* End of Notebook Content *)
 
@@ -281,51 +283,44 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[557, 20, 119, 1, 42, 119, 1, "StyleData", "StyleDefinitions", ""],
+Cell[558, 20, 119, 1, 40, 119, 1, "StyleData", "StyleDefinitions", ""],
+Cell[680, 23, 44, 0, 62, "Section"],
+Cell[727, 25, 99, 2, 33, "Text"],
+Cell[829, 29, 149, 4, 40, 27, 0, "StyleData", "Notebook", "All",
+ StyleMenuListing->None],
+Cell[981, 35, 97, 1, 62, "Section"],
+Cell[1081, 38, 135, 1, 33, "Text"],
+Cell[1219, 41, 359, 6, 77, "Text"],
+Cell[1581, 49, 257, 5, 55, "Text"],
+Cell[1841, 56, 108, 1, 62, "Section"],
+Cell[1952, 59, 1765, 36, 671, "Text"],
 Cell[CellGroupData[{
-Cell[701, 25, 44, 0, 54, "Section"],
-Cell[748, 27, 99, 2, 70, "Text"],
-Cell[850, 31, 149, 4, 70, 27, 0, "StyleData", "Notebook", "All",
- StyleMenuListing->None]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[1036, 40, 97, 1, 38, "Section"],
-Cell[1136, 43, 135, 1, 46, "Text"],
-Cell[1274, 46, 359, 6, 84, "Text"],
-Cell[1636, 54, 257, 5, 65, "Text"]
+Cell[3742, 99, 96, 1, 70, "Section"],
+Cell[3841, 102, 216, 5, 70, 31, 0, "StyleData", "All", "Working"],
+Cell[4060, 109, 246, 6, 70, 32, 0, "StyleData", "All", "Printout"]
 }, Open  ]],
+Cell[4321, 118, 189, 2, 70, "Section"],
+Cell[4513, 122, 1435, 31, 70, 31, 0, "StyleData", "StandardForm", "All"],
+Cell[5951, 155, 467, 13, 70, 24, 0, "StyleData", "Input", "All"],
 Cell[CellGroupData[{
-Cell[1930, 64, 108, 1, 54, "Section"],
-Cell[2041, 67, 1765, 36, 586, "Text"]
+Cell[6443, 172, 312, 8, 70, 25, 0, "StyleData", "Output", "All"],
+Cell[6758, 182, 169, 3, 70, 64, 0, "StyleData", "Input", "Printout"],
+Cell[6930, 187, 262, 5, 70, 63, 0, "StyleData", "Output", "Printout"]
 }, Open  ]],
-Cell[CellGroupData[{
-Cell[3843, 108, 96, 1, 54, "Section"],
-Cell[3942, 111, 216, 5, 58, 31, 0, "StyleData", "All", "Working"],
-Cell[4161, 118, 246, 6, 47, 32, 0, "StyleData", "All", "Printout"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[4444, 129, 189, 2, 54, "Section"],
-Cell[4636, 133, 1408, 30, 59, 31, 0, "StyleData", "StandardForm", "All"],
-Cell[6047, 165, 467, 13, 55, 24, 0, "StyleData", "Input", "All"],
-Cell[CellGroupData[{
-Cell[6539, 182, 312, 8, 54, 25, 0, "StyleData", "Output", "All"],
-Cell[6854, 192, 169, 3, 57, 64, 0, "StyleData", "Input", "Printout"],
-Cell[7026, 197, 262, 5, 57, 63, 0, "StyleData", "Output", "Printout"]
-}, Open  ]],
-Cell[7303, 205, 352, 9, 57, 23, 0, "StyleData", "Code", "All"],
-Cell[7658, 216, 397, 9, 60, 29, 0, "StyleData", "PrintUsage", "All"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[8092, 230, 183, 2, 54, "Section"],
-Cell[8278, 234, 98, 2, 85, 24, 0, "StyleData", "Title", "All"],
-Cell[8379, 238, 50, 1, 43, 27, 0, "StyleData", "Subtitle", "All"],
-Cell[8432, 241, 150, 3, 44, 30, 0, "StyleData", "Subsubtitle", "All"],
-Cell[8585, 246, 146, 3, 94, 26, 0, "StyleData", "Section", "All"],
-Cell[8734, 251, 149, 3, 56, 29, 0, "StyleData", "Subsection", "All"],
-Cell[8886, 256, 55, 1, 46, 32, 0, "StyleData", "Subsubsection", "All"],
-Cell[8944, 259, 84, 3, 45, 23, 0, "StyleData", "Text", "All"],
-Cell[9031, 264, 21, 0, 40, "Input"]
-}, Open  ]]
+Cell[7207, 195, 352, 9, 70, 23, 0, "StyleData", "Code", "All"],
+Cell[7562, 206, 397, 9, 70, 29, 0, "StyleData", "PrintUsage", "All"],
+Cell[7962, 217, 183, 2, 70, "Section"],
+Cell[8148, 221, 145, 3, 70, 24, 0, "StyleData", "Title", "All"],
+Cell[8296, 226, 97, 2, 70, 27, 0, "StyleData", "Subtitle", "All"],
+Cell[8396, 230, 197, 4, 70, 30, 0, "StyleData", "Subsubtitle", "All"],
+Cell[8596, 236, 193, 4, 70, 26, 0, "StyleData", "Section", "All"],
+Cell[8792, 242, 196, 4, 70, 29, 0, "StyleData", "Subsection", "All"],
+Cell[8991, 248, 79, 1, 70, 33, 0, "StyleData", "DisplayFormula", "All"],
+Cell[9073, 251, 87, 1, 70, 41, 0, "StyleData", "DisplayFormulaNumbered", \
+"All"],
+Cell[9163, 254, 102, 2, 70, 32, 0, "StyleData", "Subsubsection", "All"],
+Cell[9268, 258, 169, 5, 70, 23, 0, "StyleData", "Text", "All"],
+Cell[9440, 265, 21, 0, 70, "Input"]
 }
 ]
 *)
