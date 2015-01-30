@@ -1,0 +1,6 @@
+<SbspellConfig>
+    <local-words
+        allowed-in-comments="no"
+        local-words-file-loc="top-of-subtree"
+    />
+</SbspellConfig>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context id="DefaultContext" resbundle="com/mathworks/mwswing/binding/resources/RES_DefaultCommonActions.properties">
+    <Action id="copy-to-clipboard"/>
+    <Action id="cut-to-clipboard"/>
+    <Action id="paste-from-clipboard"/>
+    <Action id="select-all"/>
+ </Context>

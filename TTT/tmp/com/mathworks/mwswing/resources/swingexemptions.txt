@@ -1,0 +1,8 @@
+# List of packages/classes that can create bare Swing components without triggering a warning
+# Additional, temporary, exemptions can be listed in a swingexemptions.txt file in the startup directory.
+#
+javax.swing.JTable$GenericEditor
+ice.
+org.netbeans
+com.mathworks.util.Log
+com.mathworks.hg.peer.ComboboxPeer

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="CustomKeySet" type="CustomKeySetType"/>
+  <xs:complexType name="CustomKeySetType">
+    <xs:sequence>
+      <xs:element type="ContextType" name="Context" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="derivedfrom" use="required"/>
+    <xs:attribute type="xs:string" name="supportsmac" use="optional"/>
+    <xs:attribute type="xs:string" name="modifieddefault" use="optional" fixed="false"/>
+    <xs:attribute type="xs:string" name="displayname" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="SequenceType">
+    <xs:sequence>
+      <xs:element type="StrokeType" name="Stroke" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ActionType" mixed="true">
+    <xs:choice maxOccurs="unbounded" minOccurs="0">
+      <xs:element type="StrokeType" name="Stroke"/>
+      <xs:element type="SequenceType" name="Sequence"/>
+    </xs:choice>
+    <xs:attribute type="xs:string" name="id" use="optional"/>
+    <xs:attribute type="xs:string" name="follows" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="ContextType" mixed="true">
+    <xs:sequence>
+      <xs:element type="ActionType" name="Action" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="id" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="StrokeType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="code" use="optional"/>
+        <xs:attribute type="xs:string" name="shift" use="optional"/>
+        <xs:attribute type="xs:string" name="ctrl" use="optional"/>
+        <xs:attribute type="xs:string" name="alt" use="optional"/>
+        <xs:attribute type="xs:string" name="sysctrl" use="optional"/>
+        <xs:attribute type="xs:string" name="meta" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:schema>

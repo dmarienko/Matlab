@@ -1,31 +1,37 @@
-% My dark colortheme for plot
-axisColor = [0.45 0.45 0.45];
-textColor = [0 0.5 0];
+USE_DARK_THEME = true;
+
+% - common plot settings
+titleFontSize = 16;
 axesFontSize = 7;
-titleFontSize = 15;
-set(0, 'defaultfigurecolor', [0 0 0]);
 set(0, 'defaultaxesygrid', 'on');
 set(0, 'defaultaxesxgrid', 'on');
-set(0, 'defaultaxescolor',  [0 0 0]);
-set(0, 'defaultaxesxcolor', axisColor);
-set(0, 'defaultaxesycolor', axisColor);
-set(0, 'defaultaxeszcolor', axisColor);
 set(0, 'defaultaxesGridLineStyle', ':');
-set(0, 'defaultaxesfontsize', axesFontSize);
-set(0, 'defaulttextcolor',  textColor);
-set(0, 'defaulttextfontname', 'Arial');
+set(0, 'defaulttextfontname', 'Ubuntu Mono');
+set(0, 'defaultaxesfontname', 'Ubuntu Mono');
+set(0, 'DefaultLineLineSmoothing','on') % !!!
 set(0, 'defaulttextfontsize', titleFontSize);
-set(0,'DefaultAxesColorOrder',[[142 196 250]/255; [12 170 12]/255; 0.9 0.9 0.9;  [248 12 12]/255; 0.7 0.7 0.7; 1 1 0; [250 146 250]/255;  0 1 1; ]);
-set(0,'defaultlinelinewidth',1.5)
-set(0,'DefaultLineLineSmoothing','on') % !!! 
-clear axisColor textColor axesFontSize titleFontSize 
+set(0, 'defaultaxesfontsize', axesFontSize);
+set(0, 'defaultlinelinewidth',2)
+if USE_DARK_THEME % - dark colortheme for plot
+	axisColor = [0.45 0.45 0.45];
+	textColor = [0 0.5 0];
+	set(0, 'defaultfigurecolor', [0 0 0]);
+	set(0, 'defaultaxescolor',  [0 0 0]);
+	set(0, 'defaultaxesxcolor', axisColor);
+	set(0, 'defaultaxesycolor', axisColor);
+	set(0, 'defaultaxeszcolor', axisColor);
+	set(0, 'defaulttextcolor',  textColor);
+	set(0,'DefaultAxesColorOrder',[[142 196 250]/255; [12 170 12]/255; 0.9 0.9 0.9;  [248 12 12]/255; 0.7 0.7 0.7; 1 1 0; [250 146 250]/255;  0 1 1; ]);
+	set(0, 'defaultlinelinewidth',1.5)
+end
+clear axisColor textColor axesFontSize titleFontSize
 
-% My misc utilities
+% - misc utilities
 addpath('~/.matlab/utils/')
-% Library from spatial-econometrics.com/
+% - Library from spatial-econometrics.com/
 addpath(genpath('~/.matlab/libs/'), '-end')
 
-try 
+try
     EditorMacro('Escape', @GiveFocusEditor, 'run');
     EditorMacro('Alt v', 'select-word', 'run');
 catch
@@ -33,7 +39,7 @@ end
 
 isDesktop = usejava('desktop');
 
-% set off the ribbon alt hotkey to hell
+% - set off the ribbon alt hotkey to hell
 if isDesktop, com.mathworks.desktop.mnemonics.MnemonicsManagers.get.disable; end
 
 myPath = '/home/dima/.matlab/';
@@ -62,7 +68,7 @@ else
 end
 clear('userWithEditorExtension', 'w', 'myPath');
 
-try 
+try
     disp('Loading workspace ...')
     load ~/workspace.mat;
     if ~isempty(PWD),
@@ -82,4 +88,4 @@ if isDesktop
 	start(t);
 	clear t
 end
-clear isDesktop;
+clear isDesktop USE_DARK_THEME;

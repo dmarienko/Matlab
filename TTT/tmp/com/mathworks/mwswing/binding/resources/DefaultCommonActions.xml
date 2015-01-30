@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Actions resbundle="com/mathworks/mwswing/binding/resources/RES_DefaultCommonActions.properties">
+    <Action id="copy-to-clipboard">
+        <AltID id="copy"/>
+        <Icon>CommonIcon.COPY</Icon>
+        <KeySet id="Windows">
+            <Stroke code="VK_C" sysctrl="on"/>
+            <Stroke code="VK_INSERT" sysctrl="on"/>
+        </KeySet>
+        <KeySet id="Mac">
+            <Stroke code="VK_C" sysctrl="on"/>
+        </KeySet>
+        <KeySet id="Emacs">
+            <Stroke code="VK_W" alt="on"/>
+            <Stroke code="VK_W" meta="on"/>
+        </KeySet>
+    </Action>
+    <Action id="cut-to-clipboard">
+        <AltID id="cut"/>
+        <Icon>CommonIcon.CUT</Icon>
+        <KeySet id="Windows">
+            <Stroke code="VK_X" sysctrl="on"/>
+            <Stroke code="VK_DELETE" shift="on"/>
+        </KeySet>
+        <KeySet id="Mac">
+            <Stroke code="VK_X" sysctrl="on"/>
+        </KeySet>
+        <KeySet id="Emacs">
+            <Stroke code="VK_W" ctrl="on"/>
+        </KeySet>
+    </Action>
+    <Action id="paste-from-clipboard">
+        <AltID id="paste"/>
+        <Icon>CommonIcon.PASTE</Icon>
+        <KeySet id="Windows">
+            <Stroke code="VK_V" sysctrl="on"/>
+            <Stroke code="VK_INSERT" shift="on"/>
+        </KeySet>
+        <KeySet id="Mac">
+            <Stroke code="VK_V" sysctrl="on"/>
+        </KeySet>
+        <KeySet id="Emacs">
+            <Stroke code="VK_Y" ctrl="on"/>
+        </KeySet>
+    </Action>
+    <Action id="select-all">
+        <AltID id="selectAll"/>
+        <KeySet id="Unspecified">
+            <Stroke code="VK_A" sysctrl="on"/>
+        </KeySet>
+        <KeySet id="Emacs">
+            <Sequence>
+                <Stroke code="VK_X" ctrl="on"/>
+                <Stroke code="VK_H"/>
+            </Sequence>
+        </KeySet>
+    </Action>
+</Actions>
